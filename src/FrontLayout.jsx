@@ -26,19 +26,21 @@ const FrontLayout = () => {
       path:'/login',
       name:'管理員登入'
     },
+
   ]
 
   return(<>
   <header className="fixed-top bg-white">
     <nav className="navbar navbar-expand-lg bg-body-tertiary p-3">
       <div className="container-fluid">
-        <a className="navbar-brand">Navbar</a>
+        <a className="navbar-brand">眼鏡店</a>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             {
               routes.map((route) => (
                 <li className="nav-item" key={route.path}>
-                    <NavLink className="nav-link active" aria-current="page" to={route.path} >{route.name}</NavLink>
+                    <NavLink 
+                      className={()=>{ return `nav-link `}} aria-current="page" to={route.path} >{route.name}</NavLink>
                 </li>
               ))
             }

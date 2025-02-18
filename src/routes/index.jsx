@@ -1,6 +1,5 @@
 import FrontLayout from '../FrontLayout.jsx'
 import AdminLayout from '../AdminLayout.jsx'
-import ProductLayout from '../ProductLayout.jsx'
 import LoginPage from '../pages/LoginPage.jsx'
 import HomePage from '../pages/front/HomePage.jsx'
 import AboutPage from '../pages/front/AboutPage.jsx'
@@ -27,18 +26,12 @@ const routes = [
       },
       {
         path:'product',
-        element:<ProductLayout />,
-    children:[
-      {
-        path:'',
         element:<ProductPage />
-      },      {
+      },
+      {
         path:'product/:id',
         element:<ProductDetail />
       },
-    ]
-      },
-
       {
         path:'cart',
         element:<CartPage />

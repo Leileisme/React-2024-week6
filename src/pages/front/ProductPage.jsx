@@ -283,7 +283,7 @@ const ProductPage = () => {
 
   return(<>
     <div className="row">
-      {/* <aside className="col-2">
+      <aside className="col-2">
         <ul className="list-group">
           {
             productCategory.map((category)=>(
@@ -298,62 +298,63 @@ const ProductPage = () => {
             ))
           }
         </ul>
-      </aside> */}
+      </aside>
 
-
-      <div className="d-flex justify-content-between">
-        <h1 className="h3">
-          線上商城
-        </h1>
-        <div className="btn-group">
-          <button 
-            type="button" 
-            className={`btn btn-outline-primary select-list-type ps-2 pe-2 ${isList ? "active" : ""} align-items-center d-flex`}
-            style={{height:"25px",fontSize:"1rem"}}
-            onClick={()=> setIsList(true)}
-            >
-            <i className="bi bi-justify" 
-            ></i>
-          </button>
-          <button
-            type="button"
-            className={`btn btn-outline-primary select-list-type ps-2 pe-2 ${!isList ? "active" : ""} align-items-center d-flex`}
-            style={{height:"25px",fontSize:"1rem"}}
-            onClick={()=> setIsList(false)}>
-            <i className="bi bi-grid"></i>
-          </button>
+      <div className="col-10">
+        <div className="d-flex justify-content-between">
+          <h1 className="h3">
+            線上商城
+          </h1>
+          <div className="btn-group">
+            <button 
+              type="button" 
+              className={`btn btn-outline-primary select-list-type ps-2 pe-2 ${isList ? "active" : ""} align-items-center d-flex`}
+              style={{height:"25px",fontSize:"1rem"}}
+              onClick={()=> setIsList(true)}
+              >
+              <i className="bi bi-justify" 
+              ></i>
+            </button>
+            <button
+              type="button"
+              className={`btn btn-outline-primary select-list-type ps-2 pe-2 ${!isList ? "active" : ""} align-items-center d-flex`}
+              style={{height:"25px",fontSize:"1rem"}}
+              onClick={()=> setIsList(false)}>
+              <i className="bi bi-grid"></i>
+            </button>
+          </div>
         </div>
+        {
+          isList 
+          ?
+          <ProductList
+            productsList={productsList}
+            handleClickProductModal={handleClickProductModal}
+            handleAddCartItem={handleAddCartItem}
+          />
+          :
+          <ProductCard
+            productsList={productsList}
+            handleClickProductModal={handleClickProductModal}
+            handleAddCartItem={handleAddCartItem}
+          />
+        }
+        <ProductModalDetail
+          productDetailRef={productDetailRef}
+          productDetail={productDetail}
+          setProductDetail={setProductDetail}
+          handleReduceCartQty={handleReduceCartQty}
+          cartQty={cartQty}
+          handleCartQtyInputOnChange={handleCartQtyInputOnChange}
+          handleCartQtyInputOnBlur={handleCartQtyInputOnBlur}
+          handleAddCartQty={handleAddCartQty}
+          handleAddCartItem={handleAddCartItem}
+        />
+        <Pagination
+          pagination={pagination}
+          handlePageClick={handlePageClick}
+        />
       </div>
-      {
-        isList 
-        ?
-        <ProductList
-          productsList={productsList}
-          handleClickProductModal={handleClickProductModal}
-          handleAddCartItem={handleAddCartItem}
-        />
-        :
-        <ProductCard
-          productsList={productsList}
-          handleClickProductModal={handleClickProductModal}
-          handleAddCartItem={handleAddCartItem}
-        />
-      }
-      <ProductModalDetail
-        productDetailRef={productDetailRef}
-        productDetail={productDetail}
-        setProductDetail={setProductDetail}
-        handleReduceCartQty={handleReduceCartQty}
-        cartQty={cartQty}
-        handleCartQtyInputOnChange={handleCartQtyInputOnChange}
-        handleCartQtyInputOnBlur={handleCartQtyInputOnBlur}
-        handleAddCartQty={handleAddCartQty}
-        handleAddCartItem={handleAddCartItem}
-      />
-      <Pagination
-        pagination={pagination}
-        handlePageClick={handlePageClick}
-      />
     </div>
   </>)
 }
